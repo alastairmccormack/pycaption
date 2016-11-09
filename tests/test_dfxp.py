@@ -6,7 +6,9 @@ from pycaption.exceptions import CaptionReadSyntaxError, InvalidInputError, Capt
 
 from tests.samples.dfxp import (
     SAMPLE_DFXP, SAMPLE_DFXP_EMPTY, SAMPLE_DFXP_SYNTAX_ERROR,
-    DFXP_WITH_ALTERNATIVE_TIMING_FORMATS, SAMPLE_DFXP_EMPTY_PARAGRAPH
+    DFXP_WITH_ALTERNATIVE_TIMING_FORMATS, SAMPLE_DFXP_EMPTY_PARAGRAPH,
+    SAMPLE_DFXP_FRAME_TIMING_MULTIPLIER_29_97FPS, SAMPLE_DFXP_FRAME_TIMING_DEFAULT_30FPS,
+    SAMPLE_DFXP_FRAME_TIMING_25FPS
 )
 
 
@@ -117,6 +119,38 @@ class DFXPReaderTestCase(unittest.TestCase):
         except CaptionReadError:
             self.fail("Failing on empty paragraph")
 
+    def test_properly_converts_timing_with_frames_with_29_97fps_multiplier(self):
+        caption_set = DFXPReader().read(
+            SAMPLE_DFXP_FRAME_TIMING_MULTIPLIER_29_97FPS)
+        caps = caption_set.get_captions('en-US')
+        self.assertEqual(caps[0].start, 8100100)
+        self.assertEqual(caps[0].end, 12190000)
+        self.assertEqual(caps[1].start, 258066733)
+        self.assertEqual(caps[1].end, 8168190000)
+        self.assertEqual(caps[2].start, 43208967633)
+        self.assertEqual(caps[2].end, 50412190000)
+
+    def test_properly_converts_timing_with_frames_with_30fps_default(self):
+        caption_set = DFXPReader().read(
+                SAMPLE_DFXP_FRAME_TIMING_DEFAULT_30FPS)
+        caps = caption_set.get_captions('en-US')
+        self.assertEqual(caps[0].start, 8100000)
+        self.assertEqual(caps[0].end, 12190000)
+        self.assertEqual(caps[1].start, 258066666)
+        self.assertEqual(caps[1].end, 8168190000)
+        self.assertEqual(caps[2].start, 43208966666)
+        self.assertEqual(caps[2].end, 50412190000)
+
+    def test_properly_converts_timing_with_frames_with_25fps(self):
+        caption_set = DFXPReader().read(
+                SAMPLE_DFXP_FRAME_TIMING_25FPS)
+        caps = caption_set.get_captions('en-US')
+        self.assertEqual(caps[0].start, 8120000)
+        self.assertEqual(caps[0].end, 12190000)
+        self.assertEqual(caps[1].start, 258080000)
+        self.assertEqual(caps[1].end, 8168190000)
+        self.assertEqual(caps[2].start, 43208960000)
+        self.assertEqual(caps[2].end, 50412190000)
 
 SAMPLE_DFXP_INVALID_POSITIONING_VALUE_TEMPLATE = """\
 <?xml version="1.0" encoding="utf-8"?>

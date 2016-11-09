@@ -1136,3 +1136,83 @@ SAMPLE_DFXP_EMPTY_PARAGRAPH = """
  </body>
 </tt>
 """
+
+SAMPLE_DFXP_FRAME_TIMING_MULTIPLIER_29_97FPS= """
+<?xml version="1.0" encoding="utf-8"?>
+<tt xml:lang="en" xmlns="http://www.w3.org/ns/ttml" xmlns:tts="http://www.w3.org/ns/ttml#styling"
+xmlns:ttp="http://www.w3.org/ns/ttml#parameter" ttp:timeBase="media" ttp:frameRate="1"
+ttp:frameRateMultiplier="30000 1001">
+ <head>
+  <layout>
+   <region tts:origin="10% 10%" xml:id="b1"/>
+   <region tts:origin="40% 40%" xml:id="b2"/>
+   <region tts:origin="10% 70%" xml:id="b3"/>
+  </layout>
+ </head>
+ <body>
+  <div region="bottom" xml:lang="en-US">
+   <p begin="00:00:08:03" end="00:00:12.19" region="b1">
+    Some text here
+   </p>
+   <p begin="00:04:18:2" end="2:16:8.19" region="b2">
+    Some text there
+   </p>
+   <p begin="12:00:8:29" end="14:00:12.19" region="b3">
+    Caption texts are everywhere!
+   </p>
+  </div>
+ </body>
+</tt>"""
+
+SAMPLE_DFXP_FRAME_TIMING_DEFAULT_30FPS= """
+<?xml version="1.0" encoding="utf-8"?>
+<tt xml:lang="en" xmlns="http://www.w3.org/ns/ttml" xmlns:tts="http://www.w3.org/ns/ttml#styling"
+xmlns:ttp="http://www.w3.org/ns/ttml#parameter" ttp:timeBase="media">
+ <head>
+  <layout>
+   <region tts:origin="10% 10%" xml:id="b1"/>
+   <region tts:origin="40% 40%" xml:id="b2"/>
+   <region tts:origin="10% 70%" xml:id="b3"/>
+  </layout>
+ </head>
+ <body>
+  <div region="bottom" xml:lang="en-US">
+   <p begin="00:00:08:03" end="00:00:12.19" region="b1">
+    Some text here
+   </p>
+   <p begin="00:04:18:2" end="2:16:8.19" region="b2">
+    Some text there
+   </p>
+   <p begin="12:00:8:29" end="14:00:12.19" region="b3">
+    Caption texts are everywhere!
+   </p>
+  </div>
+ </body>
+</tt>"""
+
+SAMPLE_DFXP_FRAME_TIMING_25FPS= """
+<?xml version="1.0" encoding="utf-8"?>
+<tt xml:lang="en" xmlns="http://www.w3.org/ns/ttml" xmlns:tts="http://www.w3.org/ns/ttml#styling"
+xmlns:ttp="http://www.w3.org/ns/ttml#parameter" ttp:timeBase="media" ttp:frameRate="25">
+ <head>
+  <layout>
+   <region tts:origin="10% 10%" xml:id="b1"/>
+   <region tts:origin="40% 40%" xml:id="b2"/>
+   <region tts:origin="10% 70%" xml:id="b3"/>
+  </layout>
+ </head>
+ <body>
+  <div region="bottom" xml:lang="en-US">
+   <p begin="00:00:08:03" end="00:00:12.19" region="b1">
+    Some text here
+   </p>
+   <p begin="00:04:18:2" end="2:16:8.19" region="b2">
+    Some text there
+   </p>
+   <p begin="12:00:8:24" end="14:00:12.19" region="b3">
+    Caption texts are everywhere!
+   </p>
+  </div>
+ </body>
+</tt>"""
+
