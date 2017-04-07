@@ -1,3 +1,10 @@
+This fork adds better support for timecodes in DFXP subs:
+
+- frameRate and frameRateMultiplier used to create framerate value. Defaults to 30fps. Allows for fraction fps, such as 29.97fps
+- reworked timestamp code for readability
+- added support for "f" offset metric
+- added tests for 29.97, 30fps (via default), 25fps
+
 py-caption
 ==========
 
