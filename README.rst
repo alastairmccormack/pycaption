@@ -1,4 +1,4 @@
-This fork adds better support for timecodes in DFXP subs:
+This fork adds better support for timecodes in DFXP/TTML subs:
 
 - frameRate and frameRateMultiplier used to create framerate value. Defaults to 30fps. Allows for fraction fps, such as 29.97fps
 - reworked timestamp code for readability
