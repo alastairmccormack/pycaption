@@ -1,7 +1,9 @@
+from __future__ import unicode_literals
 import re
 from copy import deepcopy
 from xml.sax.saxutils import escape
 from bs4 import BeautifulSoup, NavigableString
+import six
 
 from ..base import (
     BaseReader, BaseWriter, CaptionSet, CaptionList, Caption, CaptionNode,
@@ -59,8 +61,8 @@ class DFXPReader(BaseReader):
             return False
 
     def read(self, content):
-        if type(content) != str:
-            raise InvalidInputError('The content is not a unicode string.')
+        if not isinstance(content, six.text_type):
+             raise InvalidInputError('The content is not a unicode string.')
 
         dfxp_document = self._get_dfxp_parser_class()(
             content, read_invalid_positioning=self.read_invalid_positioning)

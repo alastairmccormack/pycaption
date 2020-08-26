@@ -35,15 +35,25 @@ OBS:
       because this is irrelevant.
 
 """
+from __future__ import unicode_literals
+
 import re
 import six
 from logging import FATAL
 from collections import deque
 from copy import deepcopy
-from future.backports.html.parser import HTMLParseError
+try:
+    from future.backports.html.parser import HTMLParseError
+except ImportError:
+    from HTMLParser import HTMLParseError
 
-from html.parser import HTMLParser
-from html.entities import name2codepoint
+try:
+    from html.parser import HTMLParser
+    from html.entities import name2codepoint
+except:
+    from HTMLParser import HTMLParser
+    from htmlentitydefs import name2codepoint
+
 from xml.sax.saxutils import escape
 
 

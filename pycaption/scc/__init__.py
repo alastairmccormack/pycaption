@@ -76,7 +76,7 @@ http://www.theneitherworld.com/mcpoodle/SCC_TOOLS/DOCS/SCC_FORMAT.HTML
  dictionary. This is legacy logic, that I didn't know how to handle, and
  just carried over when implementing positioning.
 """
-
+from __future__ import unicode_literals
 import re
 import math
 import textwrap
